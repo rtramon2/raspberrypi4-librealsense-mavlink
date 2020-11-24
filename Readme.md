@@ -1,6 +1,6 @@
 Raspberry Pi 4 mavlink with librealsense install proceadure. This uses the 2.36 version of librealsene, newer versions will give a pipeline error.
 
-
+# Initial Setup
 1: download and install Debian Buster https://www.raspberrypi.org/software/
 2: update the os:
 	Sudo apt update
@@ -14,10 +14,7 @@ Raspberry Pi 4 mavlink with librealsense install proceadure. This uses the 2.36 
 # Install dependencies
 sudo apt install git libssl-dev libusb-1.0-0-dev pkg-config -y
 sudo apt install cmake python3-dev raspberrypi-kernel-headers -y
-
-# Clone the repository under directory of your chosing
-cd ~
-
+# Clone Librealsense 2.36
 #it is important to clone the 2.36 branch any other version will not compile #pyrealsense correctly
 git clone https://github.com/IntelRealSense/librealsense.git --branch v2.36.0
 cd librealsense
@@ -35,7 +32,10 @@ xarg sudo rm < install_manifest.txt
 rm CMakeCache.txt
 export CC=/usr/bin/gcc-6
 export CXX=/usr/bin/g++-6
+
+# make and build librealsense
 #note to build with python2 change PYTHON_EXECUTABLE to /usr/bin/python
+
 cmake -D CMAKE_BUILD_TYPE="Release"\
 -D FORCE_LIBUVC=ON \
 -D BUILD_PYTHON_BINDINGS=ON -D BUILD_PYTHON_BINDINGS=TRUE \
@@ -48,9 +48,9 @@ sudo ldconfig
 # Finally, reboot the pi:
 sudo reboot
 	
-6: download test scripts to the librealsense/build/wrappers/python folder. All python scripts using pyrealsense 2 must be located in the librealsense/build/wrappers/python folder otherwise they will not run. 
+# download test scripts to the librealsense/build/wrappers/python folder. All python scripts using pyrealsense 2 must be located in the librealsense/build/wrappers/python folder otherwise they will not run. 
 https://raw.githubusercontent.com/thien94/vision_to_mavros/master/scripts/t265_to_mavlink.py
 https://github.com/IntelRealSense/librealsense/tree/master/wrappers/python/examples
 
-7: setup mavlink-router 
+# setup mavlink-router 
 https://github.com/mavlink-router/mavlink-router
