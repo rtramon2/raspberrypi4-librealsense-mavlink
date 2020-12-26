@@ -1,6 +1,6 @@
 Raspberry Pi 4 mavlink with librealsense install proceadure. This uses the 2.36 version of librealsene, newer versions will give a pipeline error.
 
-# Initial Setup
+# Initial Setup & Mavlink Install
 1. download and install Debian Buster https://www.raspberrypi.org/software/
 2. update the os:
 	- Sudo apt update
@@ -9,7 +9,14 @@ Raspberry Pi 4 mavlink with librealsense install proceadure. This uses the 2.36 
 	- Sudo apt install python-dev
 	- Sudo apt install python3-dev python3-opencv python3-wxgtk4.0 libxml2-dev python3-pip python3-matplotlib python3-lxml
 4. install mavlink:
+```bash
+sudo apt-get install python3-dev python3-opencv python3-wxgtk4.0 python3-pip python3-matplotlib python3-lxml python3-pygame
+pip3 install PyYAML mavproxy --user
+echo "export PATH=$PATH:$HOME/.local/bin" >> ~/.bashrc
+```
+
 	- https://ardupilot.org/mavproxy/docs/getting_started/download_and_installation.html#mavproxy-downloadinstalllinux
+# Librealsense Install Procedure:
 # Install dependencies
 * sudo apt install git libssl-dev libusb-1.0-0-dev pkg-config -y
 * sudo apt install cmake python3-dev raspberrypi-kernel-headers -y
