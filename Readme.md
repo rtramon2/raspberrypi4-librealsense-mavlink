@@ -10,7 +10,6 @@ Raspberry Pi 4 mavlink with librealsense install proceadure. This uses the 2.36 
 	- Sudo apt install python3-dev python3-opencv python3-wxgtk4.0 libxml2-dev python3-pip python3-matplotlib python3-lxml
 4. install mavlink:
 	- https://ardupilot.org/mavproxy/docs/getting_started/download_and_installation.html#mavproxy-downloadinstalllinux
-5. clone and compile librealsense
 # Install dependencies
 * sudo apt install git libssl-dev libusb-1.0-0-dev pkg-config -y
 * sudo apt install cmake python3-dev raspberrypi-kernel-headers -y
